@@ -8,8 +8,8 @@
 	1.	Client Request → A user submits a request to shorten a URL.
 	2.	Shorten Service → Generates a unique shortened URL.
 	3.	Redis Bloom Filter → Checks if the URL already exists in the system.
-	•	If exists, returns the existing short URL.
-	•	If new, proceeds to store the mapping.
+		If exists, returns the existing short URL.
+		If new, proceeds to store the mapping.
 	4.	Redis Cache → Temporarily stores the mapping for quick retrieval.
 	5.	MySQL Storage → Persists the URL mapping for long-term storage.
 
