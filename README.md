@@ -26,4 +26,4 @@
 	•	Database: MySQL
 	•	Cache: Redis
 	•	Bloom Filter: Redis Bloom Filter (Redisson)
- • Containerization: Docker
+ 	•       Containerization: Docker
