@@ -29,11 +29,17 @@
  	•       Containerization: Docker
   
 **🚀 The Challenges:**
+
 	• How to serve millions of requests while keeping latency low?
 	• How to quickly check if a URL has been shortened before without overwhelming the database?
 
 **🚀 The Solutions:**
+
 	1.  Balancing Speed and Durability with a Tiered Storage Approach.
-	Redis serves as the primary cache for quick lookups, reducing query latency for frequently accessed URLs. MySQL acts as the persistent storage 		layer, 	ensuring long-term durability of the data.
+	Redis serves as the primary cache for quick lookups, reducing query latency for frequently accessed URLs.
+ 	MySQL acts as the persistent storage layer, ensuring long-term durability of the data.
+  
 	2.  Preventing Unnecessary DB Writes with Redis Bloom Filter. 
-	 When a new URL is submitted, the Redis Bloom Filter is checked before querying MySQL. If the Bloom Filter says “not seen before” → The system 		proceeds with normal processing (stores in Redis & MySQL). If the Bloom Filter says “might exist” → The system queries Redis first, then MySQL 		if necessary.
+	When a new URL is submitted, the Redis Bloom Filter is checked before querying MySQL. 
+ 	If the Bloom Filter says “not seen before” → The system proceeds with normal processing (stores in Redis & MySQL). 
+  	If the Bloom Filter says “might exist” → The system queries Redis first, then MySQL if necessary.
